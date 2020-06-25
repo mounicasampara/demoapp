@@ -1,3 +1,4 @@
+import { Post } from './../Post';
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 
@@ -7,13 +8,13 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-  employeeList: Array<object>;
+  bookList: Post[];
 
   constructor(private employeeService: EmployeeService) 
   { }
 
-  ngOnInit(): void {
-    this.employeeList = this.employeeService.getEmployees();
+  ngOnInit(){
+    this.employeeService.getEmployees().subscribe(response => this.bookList = response);
   }
 }
 

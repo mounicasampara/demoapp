@@ -1,23 +1,17 @@
+import { Post } from './Post';
 import { Injectable } from '@angular/core';
-//import { UserModule } from './user.module';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
-  //providedIn: 'UseModule'
 })
 
 export class EmployeeService{
-  employee: Array<object> = [
-    { name: 'Conor McGregor', role: 'manager'},
-    { name: 'Tony Ferguson', role: 'team lead'},
-    { name: 'Max Holloway', role: 'team member'},
-    { name: 'Jon Jones', role: 'team member'},
-    { name: 'Daniel Cormier', role: 'team member'},
-    { name: 'Brock Lesnar', role: 'team member'}
-  ];
-  constructor() { }
-  getEmployees(){
-    return this.employee;
-}
+  url = 'https://jsonplaceholder.typicode.com/posts';
+  constructor(private httpclient: HttpClient) { }
+  getEmployees(): Observable<Post[]>{
+    return this.httpclient.get<Post[]>(this.url); 
+  }
 }

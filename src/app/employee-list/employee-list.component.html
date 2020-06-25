@@ -1,13 +1,14 @@
 <table class="table table-striped">
     <thead>
-      <th>Name</th>
-      <th>Role</th>
+      <th>User Id</th>
+      <th>Title</th>
+      <th>body</th>
     </thead>
     <tbody>
-      <tr *ngFor="let emp of employeeList">
-        <td>{{emp.name}}</td>
-        <td>{{emp.role}}</td>
-        
+      <tr *ngFor="let emp of bookList">
+        <td>{{emp.userId}}</td>
+        <td>{{emp.id}}</td>
+        <td>{{emp.body}}</td>
       </tr>
     </tbody>
   </table>
