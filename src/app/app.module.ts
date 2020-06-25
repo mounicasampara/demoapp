@@ -24,7 +24,7 @@ import { InMemoryDataServiceService } from './in-memory-data-service.service';
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataServiceService)
+    InMemoryWebApiModule.forRoot(InMemoryDataServiceService, { dataEncapsulation: false, passThruUnknownUrl: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
