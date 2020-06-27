@@ -11,6 +11,8 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 import { CommonModule } from '@angular/common';  
 import { InMemoryDataServiceService } from './in-memory-data-service.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { InMemoryDataServiceService } from './in-memory-data-service.service';
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataServiceService, { dataEncapsulation: false, passThruUnknownUrl: true })
+    InMemoryWebApiModule.forRoot(InMemoryDataServiceService, { dataEncapsulation: false, passThruUnknownUrl: true }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
